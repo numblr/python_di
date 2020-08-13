@@ -8,4 +8,4 @@ class ElaborateServiceContainer(ServiceContainer):
 
 class ElaborateService(Service):
     def print(self):
-        return "Elaborate service"
+        return "Elaborate service [id=" + str(id(self)) + "]"

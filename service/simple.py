@@ -8,4 +8,4 @@ class SimpleServiceContainer(ServiceContainer):
 
 class SimpleService(Service):
     def print(self):
-        return "Simple service"
+        return "Simple service [id=" + str(id(self)) + "]"

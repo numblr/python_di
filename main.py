@@ -1,21 +1,37 @@
-from component.simple import SimpleComponentContainer
+from component.default import DefaultComponentContainer
 from service.simple import SimpleServiceContainer
 from service.elaborate import ElaborateServiceContainer
+from service.singleton import SingletonServiceContainer
 
-class SimpleApplicationContainer(SimpleServiceContainer, SimpleComponentContainer):
+class SimpleApplicationContainer(DefaultComponentContainer, SimpleServiceContainer):
     pass
 
-class ElaborateApplicationContainer(ElaborateServiceContainer, SimpleComponentContainer):
+class ElaborateApplicationContainer(ElaborateServiceContainer, DefaultComponentContainer):
+    pass
+
+class SingletonApplicationContainer(SingletonServiceContainer, DefaultComponentContainer):
     pass
 
 
 def main():
     print("")
     print("Simple Application:")
-    print(SimpleApplicationContainer().component().print())
+    component_1 = SimpleApplicationContainer().component()
+    component_2 = SimpleApplicationContainer().component()
+    print("Component 1: ", component_1.print())
+    print("Component 2: ", component_2.print())
     print("")
     print("Elaborate Application:")
-    print(ElaborateApplicationContainer().component().print())
+    component_1 = ElaborateApplicationContainer().component()
+    component_2 = ElaborateApplicationContainer().component()
+    print("Component 1: ", component_1.print())
+    print("Component 2: ", component_2.print())
+    print("")
+    print("Singleton Application:")
+    component_1 = SingletonApplicationContainer().component()
+    component_2 = SingletonApplicationContainer().component()
+    print("Component 1: ", component_1.print())
+    print("Component 2: ", component_2.print())
 
 
 if __name__ == '__main__':
