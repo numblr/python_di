@@ -12,4 +12,4 @@ class DefaultComponent(Component):
         self._service = service
 
     def print(self):
-        return "Default Component with " + self._service.print()
+        return "Default Component [id=" + str(id(self)) + "] with " + self._service.print()
