@@ -19,6 +19,15 @@ point to retrieve a `component` (or `service`) instance.
 
 ![](doc/Containers.png)
 
-The red parts in the diagram and the respective `api` modules in code are not needed in Pyhton.
+The red parts in the diagram and the respective `api` modules in code are not needed in Python.
 They have no functional impact and can be (fully or partially) left out. They serve only the
 purpose of clarity.
+
+## Shortcomings
+
+This is a very basic approach and comes with some shortcomings:
+
+ * You need to write quite some boilerplate code
+ * Dependencies are resolved purely by their method name in the container mixins, therefore you 
+   need to be careful not to run into name conflicts between different containers. In other words,
+   method names in the container mixins need to be globally unique.
