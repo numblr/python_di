@@ -8,10 +8,11 @@ The pattern models the dependency order in object instantiation by an invocation
 methods. Provider methods are resolved in a top level container that is composed from individual
 containers that are provided by the implementation modules as mixins.
 
-The following diagram visualizes this pattern with a `component` module who's implementation is
-provided by the `ComponentImplContainer` and depends on a `service`, provided by the
-`ServiceImplContainer`. The top level `ApplicationContainer` is composed of both of the
-implementation containers. Different implementations of the `service` can be injected into the
+The following diagram visualizes this pattern with a `component` who's implementation depends on a
+`service`. Instances of `service` are provided by the `ServiceImplContainer`, instances of
+`component` in turn are provided by the `ComponentImplContainer`, which injects a `service`
+instance into the `component`. The top level `ApplicationContainer` is composed of both of these
+two implementation containers. Different implementations of the `service` can be injected into the
 `component` by replacing the `ServiceImplContainer` in the `ApplicationContainer` with any other
 container that provides a `service`. Application code uses the `ApplicationContainer` as entry
 point to retrieve a `component` (or `service`) instance. 
